@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-
+import requests
 app = Flask(__name__)
 
 
@@ -7,6 +7,10 @@ app = Flask(__name__)
 def hello():
     return 'Welcome'
 
+@app.route('/')
+def get_server_ip():
+    res = requests.get("https://api4.ipify.org/?format=json")
+    return {"success": True, 'ip': res.json()['ip']}
 
 @app.route('/test')
 def test():
