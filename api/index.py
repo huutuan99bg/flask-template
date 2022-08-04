@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    return 'Welcome'
+    return {"success": True, 'test': 'ok'}
 
 @app.route('/')
 def get_server_ip():
