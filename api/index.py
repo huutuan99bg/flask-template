@@ -7,7 +7,7 @@ app = Flask(__name__)
 def hello():
     return {"success": True, 'test': 'ok'}
 
-@app.route('/')
+@app.route('/network')
 def get_server_ip():
     res = requests.get("https://api4.ipify.org/?format=json")
     return {"success": True, 'ip': res.json()['ip']}
